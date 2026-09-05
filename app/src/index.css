@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: #B48EAD;
+    --color-chart-4: #EBCB8B;
+    --color-chart-3: #BF616A;
+    --color-chart-2: #A3BE8C;
+    --color-chart-1: #88C0D0;
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: 2px;
+    --radius-md: 3px;
+    --radius-lg: 4px;
+    --radius-xl: 4px;
+    --radius-2xl: 4px;
+    --radius-3xl: 4px;
+    --radius-4xl: 4px;
+}
+
+:root {
+    --background: #E5E9F0;
+    --foreground: #2E3440;
+    --card: #ECEFF4;
+    --card-foreground: #2E3440;
+    --popover: #ECEFF4;
+    --popover-foreground: #2E3440;
+    --primary: #88C0D0;
+    --primary-foreground: #2E3440;
+    --secondary: #D8DEE9;
+    --secondary-foreground: #2E3440;
+    --muted: #D8DEE9;
+    --muted-foreground: #4C566A;
+    --accent: #D8DEE9;
+    --accent-foreground: #2E3440;
+    --destructive: #BF616A;
+    --border: #D8DEE9;
+    --input: #D8DEE9;
+    --ring: #88C0D0;
+    --radius: 0.25rem;
+}
+
+.dark {
+    /* Nord Theme Colors */
+    --background: #2E3440;       /* Dark slate — not pure black */
+    --foreground: #ECEFF4;       /* Primary off-white */
+    --card: #3B4252;             /* Panel/card background */
+    --card-foreground: #ECEFF4;
+    --popover: #3B4252;
+    --popover-foreground: #ECEFF4;
+    --primary: #88C0D0;          /* Frost blue accent */
+    --primary-foreground: #2E3440;
+    --secondary: #434C5E;        /* Elevated panel */
+    --secondary-foreground: #ECEFF4;
+    --muted: #3B4252;
+    --muted-foreground: #78839b; /* Muted gray-blue secondary/label text */
+    --accent: #434C5E;
+    --accent-foreground: #88C0D0;
+    --destructive: #BF616A;      /* Muted red */
+    --border: #434C5E;           /* Hairline/divider */
+    --input: #434C5E;
+    --ring: #88C0D0;
+    --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/40;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-color: #2E3440;
+    color: #ECEFF4;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Page Replacement Island CSS & Flat Nord Flashes */
+.is-hidden {
+  display: none !important;
+}
+
+/* Flat, non-glowing brief status flashes */
+@keyframes hit-flash {
+  0% {
+    background-color: rgba(163, 190, 140, 0.45);
+    border-color: #A3BE8C;
+  }
+  100% {
+    background-color: transparent;
+    border-color: #434C5E;
+  }
+}
+
+@keyframes fault-flash {
+  0% {
+    background-color: rgba(191, 97, 106, 0.45);
+    border-color: #BF616A;
+  }
+  100% {
+    background-color: transparent;
+    border-color: #434C5E;
+  }
+}
+
+.is-hit {
+  animation: hit-flash 0.5s ease-out forwards;
+}
+
+.is-fault {
+  animation: fault-flash 0.5s ease-out forwards;
+}

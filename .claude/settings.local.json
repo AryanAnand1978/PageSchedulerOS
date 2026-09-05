@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm view *)",
+      "WebFetch(domain:animejs.com)",
+      "WebFetch(domain:ui.shadcn.com)"
+    ]
+  }
+}
